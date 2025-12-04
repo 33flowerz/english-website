@@ -1,808 +1,455 @@
-/* ===== ENGLISH TEACHING WEBSITE - MAIN STYLES ===== */
-/* Save this as style.css */
+/* Modern Lesson Website Styles */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #64748b;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --accent: #3b82f6;
+    --border: #e2e8f0;
+    --success: #10b981;
+}
 
-/* 1. RESET & BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--dark);
+    background: var(--light);
 }
 
 .container {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* 2. TYPOGRAPHY */
-h1, h2, h3, h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.5rem; }
-
-.highlight {
-    color: #3498db;
-    font-weight: 700;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #7f8c8d;
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
-}
-
-/* 3. HEADER & NAVIGATION */
-header {
-    background-color: white;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+/* Navigation */
+.navbar {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
-.navbar {
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 0;
+    padding: 1rem 20px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #2c3e50;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.logo i {
-    font-size: 1.8rem;
-    color: #3498db;
-    margin-right: 10px;
-}
-
-.logo-highlight {
-    color: #3498db;
-    font-weight: 800;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.nav-link:hover {
-    color: #3498db;
-    background-color: #f0f7ff;
-}
-
-.nav-link.active {
-    color: #3498db;
-    background-color: #e8f4fc;
-}
-
-.cta-nav {
-    background-color: #3498db;
-    color: white !important;
-    padding: 0.6rem 1.5rem !important;
-}
-
-.cta-nav:hover {
-    background-color: #2980b9 !important;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
     font-size: 1.5rem;
-    color: #2c3e50;
-    cursor: pointer;
-}
-
-/* 4. HERO SECTION */
-.hero {
-    padding: 4rem 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e8f4fc 100%);
-    overflow: hidden;
-}
-
-.hero .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-title {
-    font-size: 3.2rem;
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 1rem 2rem;
-    border-radius: 50px;
+    font-weight: bold;
+    color: var(--primary);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
-}
-
-.btn-secondary {
-    background: white;
-    color: #3498db;
-    border: 2px solid #3498db;
-}
-
-.btn-secondary:hover {
-    background: #3498db;
-    color: white;
-}
-
-.hero-stats {
+.nav-links {
     display: flex;
-    gap: 2.5rem;
-    margin-top: 2rem;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #2c3e50;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.hero-image {
-    flex: 1;
-    text-align: center;
-}
-
-.hero-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* 5. FEATURES SECTION */
-.features {
-    padding: 5rem 0;
-    background-color: white;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
 }
 
-.feature-card {
+.nav-links a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Lesson Cards */
+.lesson-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.lesson-card {
     background: white;
+    border-radius: 12px;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
-    border: 1px solid #eee;
+    position: relative;
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.feature-icon {
+.card-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #e8f4fc, #d6eaf8);
+    background: rgba(37, 99, 235, 0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--primary);
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.feature-icon i {
-    font-size: 1.8rem;
-    color: #3498db;
-}
-
-.feature-card h3 {
+.lesson-card h3 {
+    font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--dark);
 }
 
-.feature-card p {
-    color: #666;
+.lesson-card p {
+    color: var(--secondary);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
-.feature-link {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.feature-link:hover {
-    color: #2980b9;
-}
-
-/* 6. LEVELS SECTION */
-.levels-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e8f4fc 100%);
-}
-
-.levels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.level-card {
-    background: white;
-    padding: 2.5rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-}
-
-.level-card:hover {
-    transform: translateY(-5px);
-}
-
-.level-card.beginner {
-    border-top: 5px solid #2ecc71;
-}
-
-.level-card.intermediate {
-    border-top: 5px solid #3498db;
-}
-
-.level-card.advanced {
-    border-top: 5px solid #e74c3c;
-}
-
-.level-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.level-header h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #2c3e50;
-}
-
-.level-badge {
-    background: #f0f7ff;
-    color: #3498db;
+.lesson-count {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: var(--light);
+    color: var(--primary);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-.level-features {
-    list-style: none;
-    margin-bottom: 2rem;
-}
-
-.level-features li {
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #555;
-}
-
-.level-features i {
-    color: #2ecc71;
-}
-
-.btn-level {
-    display: block;
-    text-align: center;
-    background: #3498db;
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--primary);
     color: white;
-    padding: 1rem;
+    padding: 0.8rem 1.8rem;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s ease;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
-.btn-level:hover {
-    background: #2980b9;
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
-/* 7. VIDEOS SECTION */
-.videos-section {
-    padding: 5rem 0;
-    background-color: white;
+/* Video Section */
+.video-section {
+    margin: 4rem 0;
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
 }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.btn-view-all {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-view-all:hover {
-    color: #2980b9;
-}
-
-.videos-grid {
+.video-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .video-card {
     background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-}
-
-.video-card:hover {
-    transform: translateY(-5px);
-}
-
-.video-thumbnail {
-    position: relative;
-    height: 180px;
-    overflow: hidden;
-}
-
-.video-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(52, 152, 219, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.play-button:hover {
-    background: rgba(41, 128, 185, 0.9);
-}
-
-.video-info {
     padding: 1.5rem;
-}
-
-.video-info h3 {
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-.video-info p {
-    color: #666;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-.video-meta {
-    display: flex;
-    gap: 1rem;
-    color: #95a5a6;
-    font-size: 0.9rem;
-}
-
-.video-meta i {
-    margin-right: 5px;
-}
-
-/* 8. SOCIAL SECTION */
-.social-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e8f4fc 100%);
-}
-
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-
-.social-card {
-    background: white;
-    padding: 2rem;
     border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 1px solid var(--border);
 }
 
-.social-card:hover {
-    transform: translateY(-5px);
-    border-color: #3498db;
-}
-
-.social-card.instagram:hover { border-color: #E1306C; }
-.social-card.facebook:hover { border-color: #1877F2; }
-.social-card.threads:hover { border-color: #000; }
-.social-card.youtube:hover { border-color: #FF0000; }
-
-.social-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    font-size: 1.8rem;
-    color: white;
-}
-
-.social-card.instagram .social-icon { background: linear-gradient(45deg, #405DE6, #E1306C, #FFDC80); }
-.social-card.facebook .social-icon { background: #1877F2; }
-.social-card.threads .social-icon { background: #000; }
-.social-card.youtube .social-icon { background: #FF0000; }
-
-.social-card h3 {
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-.social-card p {
-    color: #666;
-    font-size: 0.9rem;
+.video-card h3 {
+    color: var(--dark);
     margin-bottom: 0.5rem;
 }
 
-.social-handle {
-    color: #3498db;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* 9. SIGNUP SECTION */
-.signup-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, #2c3e50, #3498db);
-    color: white;
-}
-
-.signup-box {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 3rem;
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-}
-
-.signup-content {
-    flex: 1;
-}
-
-.signup-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.signup-content ul {
-    list-style: none;
-}
-
-.signup-content li {
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.signup-content i {
-    color: #2ecc71;
-}
-
-.signup-form {
-    flex: 1;
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-}
-
-.signup-form input,
-.signup-form select {
-    width: 100%;
-    padding: 1rem;
+.video-card p {
+    color: var(--secondary);
     margin-bottom: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
 }
 
-.signup-form input:focus,
-.signup-form select:focus {
-    outline: none;
-    border-color: #3498db;
+.video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.signup-form button {
-    width: 100%;
+.video-link:hover {
+    color: var(--primary-dark);
 }
 
-.form-note {
-    text-align: center;
-    color: #7f8c8d;
-    font-size: 0.9rem;
-    margin-top: 1rem;
-}
-
-/* 10. FOOTER */
+/* Footer */
 footer {
-    background: #2c3e50;
+    background: var(--dark);
     color: white;
-    padding: 4rem 0 2rem;
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 4rem;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
+footer p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Lesson Pages */
+.lesson-page {
+    padding: 3rem 0;
+}
+
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.page-subtitle {
+    color: var(--secondary);
     margin-bottom: 3rem;
 }
 
-.footer-col h4 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-}
-
-.footer-col a {
-    display: block;
-    color: #bdc3c7;
-    text-decoration: none;
-    margin-bottom: 0.8rem;
-    transition: color 0.3s ease;
-}
-
-.footer-col a:hover {
-    color: white;
-}
-
-.footer-description {
-    color: #bdc3c7;
-    margin: 1rem 0;
-    line-height: 1.7;
-}
-
-.footer-social {
+/* Lesson List */
+.lesson-list {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
-    margin-top: 1.5rem;
 }
 
-.footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    color: white;
-    font-size: 1.1rem;
+.lesson-item {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
-.footer-social a:hover {
-    background: #3498db;
-    transform: translateY(-3px);
+.lesson-item:hover {
+    border-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.footer-col p {
-    color: #bdc3c7;
-    margin-bottom: 0.8rem;
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.lesson-title {
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+.level-badge {
+    background: var(--light);
+    color: var(--primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.lesson-description {
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.5rem;
+    color: var(--secondary);
+    font-size: 0.9rem;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #95a5a6;
+.meta-item i {
+    color: var(--primary);
 }
 
-/* 11. RESPONSIVE DESIGN */
-@media (max-width: 992px) {
-    .hero .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .hero-stats {
-        justify-content: center;
-    }
-    
-    .signup-box {
-        flex-direction: column;
-    }
+.lesson-actions {
+    display: flex;
+    gap: 1rem;
 }
 
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 0.6rem 1.5rem;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Individual Lesson */
+.lesson-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lesson-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.vocab-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.vocab-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.vocab-item:last-child {
+    border-bottom: none;
+}
+
+.vocab-word {
+    font-weight: bold;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.vocab-meaning {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.vocab-example {
+    background: var(--light);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: var(--dark);
+    border-left: 3px solid var(--primary);
+}
+
+.practice-exercise {
+    background: #f0f9ff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.exercise-title {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.exercise-item {
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
+    .navbar .container {
         flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        gap: 1rem;
     }
     
-    .nav-menu.active {
-        display: flex;
+    .nav-links {
+        gap: 1rem;
     }
     
-    .menu-toggle {
-        display: block;
+    .hero h1 {
+        font-size: 2rem;
     }
     
-    .hero-buttons {
+    .lesson-cards,
+    .video-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .lesson-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .lesson-actions {
         flex-direction: column;
     }
     
     .btn {
         width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .features-grid,
-    .levels-grid,
-    .videos-grid,
-    .social-grid {
-        grid-template-columns: 1fr;
+        text-align: center;
     }
 }
